@@ -7,9 +7,23 @@ PImage img;
 void setup() {
 	img = createImage(width, height, RGB);
 	size(width, height);
-	genModulo(img, mod);
+	//genModulo(img, mod);
+   genPerlin(img);
 }
 
+void genPerlin(PImage img) {
+   img.loadPixels();
+   float sc = 0.03;
+   int i = 0;
+   for (int y = 0; y < img.height; y++) {
+      for (int x = 0; x < img.width; x++) {
+         float ys = y * sc;
+         float xs = x * sc;
+         img.pixels[i++] = color(noise(xs,ys) * 254);
+      }
+   }
+   img.updatePixels();
+}
 void genModulo(PImage img, int mod) {
 	img.loadPixels();
 	int i = 0;
