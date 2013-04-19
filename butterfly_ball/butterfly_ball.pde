@@ -1,7 +1,5 @@
-//int wwidth = 800;
-//int wheight= 600;
-int wwidth = 1920;
-int wheight = 1080;
+int wwidth = 800;
+int wheight= 600;
 
 float f = 0;
 
@@ -17,7 +15,13 @@ PVector[] bas = new PVector[n_butterflies];
 //Used for calculating the FPS
 int frames = 0;
 
+boolean sketchFullScreen() {
+   return true;
+}
+
 void setup() {
+   wwidth = displayWidth;
+   wheight = displayHeight;
    size(wwidth,wheight, P3D); 
 
 	for (int i = 0; i < n_butterflies; i++) {
